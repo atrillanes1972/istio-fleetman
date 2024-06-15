@@ -157,7 +157,7 @@ spec:
     metadata:
       labels:
         app: staff-service
-        version: latest
+        version: risky
     spec:
       containers:
       - name: staff-service
