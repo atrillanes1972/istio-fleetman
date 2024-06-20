@@ -1,0 +1,32 @@
+kind: VirtualService
+apiVersion: networking.istio.io/v1beta1
+metadata:
+   name: fleetman-staff-service
+   namespace: default
+spec:
+   hosts:
+      - fleetman-staff-service.default.svc.cluster.local
+   http:
+      - route:
+         - destination:
+            host: fleetman-staff-service.default.svc.cluster.local
+            subset: safe-group
+           # weight not needed, if theres only one.
+
+---
+kind: DestinationRule
+apiVersion: networking.istio.io/v1beta1
+metadata:
+   name: fleetman-staff-service
+   namespace: default
+spec:
+   host: fleetman-staff-service
+   trafficPolicy:
+      loadBalancer:
+         consistentHash:
+            useSourceIp: true
+   subsets:
+      - labels:
+         app: staff-service
+        name: all-staff-service-pods
+      
