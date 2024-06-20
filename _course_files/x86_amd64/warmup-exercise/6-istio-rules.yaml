@@ -11,11 +11,11 @@ spec:
          - destination:
             host: fleetman-staff-service.default.svc.cluster.local
             subset: safe-group
-           weight: 100
+           weight: 50
          - destination:
             host: fleetman-staff-service.default.svc.cluster.local
             subset: risky-group
-           weight: 0
+           weight: 50
 
 ---
 kind: DestinationRule
@@ -25,10 +25,10 @@ metadata:
    namespace: default
 spec:
    host: fleetman-staff-service
-   trafficPolicy:
-      loadBalancer:
-         consistentHash:
-            useSourceIp: true
+   #trafficPolicy:
+   #   loadBalancer:
+   #      consistentHash:
+   #         useSourceIp: true
    subsets:
       - labels:
          version: safe
