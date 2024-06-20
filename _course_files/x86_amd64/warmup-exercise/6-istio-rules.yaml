@@ -11,11 +11,11 @@ spec:
          - destination:
             host: fleetman-staff-service.default.svc.cluster.local
             subset: safe-group
-           weight: 20
+           weight: 100
          - destination:
             host: fleetman-staff-service.default.svc.cluster.local
             subset: risky-group
-           weight: 80
+           weight: 0
 
 ---
 kind: DestinationRule
