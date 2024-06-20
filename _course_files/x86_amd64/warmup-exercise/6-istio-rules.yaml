@@ -25,6 +25,10 @@ metadata:
    namespace: default
 spec:
    host: fleetman-staff-service
+   trafficPolicy:
+      loadBalancer:
+         consistentHash:
+            useSourceIp: true
    subsets:
       - labels:
          version: safe
