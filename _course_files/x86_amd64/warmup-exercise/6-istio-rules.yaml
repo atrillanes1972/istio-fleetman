@@ -10,11 +10,11 @@ spec:
       - route:
          - destination:
             host: fleetman-staff-service.default.svc.cluster.local
-            subset: safe
+            subset: safe-group
            weight: 20
          - destination:
             host: fleetman-staff-service.default.svc.cluster.local
-            subset: risky
+            subset: risky-group
            weight: 80
 
 ---
@@ -28,7 +28,7 @@ spec:
    subsets:
       - labels:
          version: safe
-        name: safe
+        name: safe-group
       - labels:
          version: risky
-        name: risky
+        name: risky-group
