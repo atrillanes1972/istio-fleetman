@@ -5,15 +5,15 @@ metadata:
    namespace: default
 spec:
    hosts:
-      - fleetman-staff-service
+      - fleetman-staff-service.default.svc.cluster.local
    http:
       - route:
          - destination:
-            host: fleetman-staff-service
+            host: fleetman-staff-service.default.svc.cluster.local
             subset: safe
            weight: 20
          - destination:
-            host: fleetman-staff-service
+            host: fleetman-staff-service.default.svc.cluster.local
             subset: risky
            weight: 80
 
