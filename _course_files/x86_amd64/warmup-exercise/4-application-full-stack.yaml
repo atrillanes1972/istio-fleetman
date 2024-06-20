@@ -134,7 +134,7 @@ spec:
     metadata:
       labels:
         app: staff-service
-        version: latest
+        version: safe
     spec:
       containers:
       - name: staff-service
